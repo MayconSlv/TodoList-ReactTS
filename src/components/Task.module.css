@@ -1,0 +1,80 @@
+.task__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  background-color: var(--grey-500);
+  border: 1px solid var(--grey-400);
+  border-radius: 8px;
+
+  padding: 1.6rem;
+}
+
+.task__container + .task__container {
+  margin-top: 1.2rem;
+}
+
+.container {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.task__content {
+  color: var(--grey-100);
+  transition: .4s;
+}
+
+.task__button {
+  background-color: transparent;
+  color: var(--grey-300);
+
+  border: none;
+  border-radius: 4px;
+
+  height: 2.4rem;
+  width: 2.4rem;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task__button:hover {
+  background-color: var(--grey-400);
+  color: var(--danger);
+}
+
+/* input style */
+
+.task__container input[type="checkbox"] {
+  appearance: none;
+
+  height: 1.7rem;
+  width: 1.7rem;
+
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+
+  transition: .2s;
+}
+
+.task__container input[type="checkbox"]:hover {
+  background-color: var(--blue-dark);
+}
+
+.task__container input[type="checkbox"]:checked {
+  background-color: var(--purple-dark);
+  border: none;
+  transition: .2s;
+}
+
+.task__container input[type="checkbox"]:checked:hover {
+  background-color: var(--purple);
+}
+
+input[type="checkbox"]:checked ~ .task__content {
+  text-decoration: line-through;
+  color: var(--grey-300);
+}
