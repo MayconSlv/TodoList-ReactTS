@@ -1,14 +1,24 @@
 import style from './Task.module.css';
 import { Trash } from 'phosphor-react';
+import { ITask } from '../App';
+import { ChangeEvent, useState } from 'react';
 
-export function Task() {
+interface Props {
+  task: ITask;
+}
+
+
+export function Task({ task }: Props) {
+
+  const [isChecked, setIsChecked] = useState(false);
+  console.log(isChecked)
   return (
     <div className={style.task__container}>
 
       <div className={style.container}>
-        <input type="checkbox"/>
+        <input type="checkbox" />
         <p className={style.task__content}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis cumque consectetur excepturi ex .    
+          {task.content}    
         </p>
       </div>
 

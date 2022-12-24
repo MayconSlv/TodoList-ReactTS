@@ -27,5 +27,6 @@
 html, body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--grey-600);
+  color: var(--grey-100);
   font-size: 1.6rem;
 }

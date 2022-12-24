@@ -3,24 +3,23 @@
   margin: 50px auto;
 }
 
-.header, .tasksInfo {
+.header, .header div {
   display: flex;
   justify-content: space-between;
   text-align: center;
   gap: 1rem;
 }
 
-.createdTask {
+.header p {
   color: var(--blue);
   font-weight: 700;
 }
 
-.completedTask {
+.header .textPurple {
   color: var(--purple);
-  font-weight: 700;
 }
 
-.value {
+.header span {
   display: flex;
   align-items: center;
 
