@@ -33,6 +33,10 @@ export function App() {
     ])
   }
 
+  function isChecked (checked: boolean) {
+    
+  }
+
   return (
     <>
       <header>

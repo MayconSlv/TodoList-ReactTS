@@ -11,12 +11,19 @@ interface Props {
 export function Task({ task }: Props) {
 
   const [isChecked, setIsChecked] = useState(false);
-  console.log(isChecked)
+
+
+  function changeChecked(event: ChangeEvent<HTMLInputElement>) {
+    const checked = (event.target.checked)
+
+    setIsChecked(checked)
+  }
+
   return (
     <div className={style.task__container}>
 
       <div className={style.container}>
-        <input type="checkbox" />
+        <input type="checkbox" onChange={changeChecked}/>
         <p className={style.task__content}>
           {task.content}    
         </p>
