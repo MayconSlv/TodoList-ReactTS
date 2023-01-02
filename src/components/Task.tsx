@@ -1,7 +1,8 @@
 import style from './Task.module.css';
-import { CheckCircle, Trash } from 'phosphor-react';
+import { Trash } from 'phosphor-react';
 import { ITask } from '../App';
 import {BsFillCheckCircleFill } from 'react-icons/bs'
+import { toast } from 'react-toastify';
 
 interface Props {
   task: ITask;
@@ -11,7 +12,6 @@ interface Props {
 
 
 export function Task({ task, checkTask, onDelete }: Props) {
-
   return (
     <div className={style.task__container}>
 

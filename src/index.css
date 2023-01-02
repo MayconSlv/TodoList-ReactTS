@@ -30,3 +30,13 @@ html, body {
   color: var(--grey-100);
   font-size: 1.6rem;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--grey-500);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--grey-300);
+  border-radius: 10px;
+}
