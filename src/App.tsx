@@ -1,4 +1,8 @@
 import { useState } from 'react';
+
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 import './App.css';
 import { Header } from './components/Header';
 import { TodoList } from './components/TodoList';
@@ -10,18 +14,7 @@ export interface ITask {
 }
 
 export function App() {
-  const [tasks, setTasks] = useState<ITask[]>([
-    {
-      id: 'f525fafjd',
-      content: "estudar typesript",
-      isCompleted: false,
-    },
-    {
-      id: 'f83adsfj032',
-      content: "criar projeto usando typesccrip",
-      isCompleted: true,
-    }
-  ])
+  const [tasks, setTasks] = useState<ITask[]>([  ])
 
   function addTask (taskContent: string) {
     setTasks([
@@ -61,10 +54,18 @@ export function App() {
         <Header onAddTask={addTask}/>
       </header>
       
-      <TodoList 
-        tasks={tasks} 
-        checkTask={toggleTaskCompletedById}
-        onDelete={deleteTasksById}
+      <main>
+        <TodoList 
+          tasks={tasks} 
+          checkTask={toggleTaskCompletedById}
+          onDelete={deleteTasksById}
+        />
+      </main>
+
+      <ToastContainer
+        autoClose={2000}
+        theme="dark"
+        pauseOnHover={false}
       />
     </>
   )
