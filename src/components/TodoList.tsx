@@ -5,9 +5,11 @@ import image from '../assets/Clipboard.svg';
 
 interface Props {
   tasks: ITask[];
+  checkTask: (taskId: string) => void;
+  onDelete: (taskToDelete: string) => void;
 }
 
-export function TodoList ( { tasks }: Props) {
+export function TodoList ( { tasks, checkTask, onDelete }: Props) {
   const taskQuantity = tasks.length;
   const completedTaks = tasks.filter((task) => task.isCompleted).length
   
@@ -27,17 +29,20 @@ export function TodoList ( { tasks }: Props) {
 
       <section className={style.tasks}>
 
-        {/* <div className={style.tasks__alert}>
+        {tasks.length <= 0 && (
+          <div className={style.tasks__alert}>
           <img src={image} alt="" />
             <div>
               <strong>Você ainda não tem tarefas cadastradas</strong>
               <p>Crie tarefas e organize seus itens a fazer</p>
             </div>
-        </div> */}
+          </div>
+        )}
+         
         
         {tasks.map(task => {
           return (
-            <Task key={task.id} task={task}/>
+            <Task key={task.id} task={task} checkTask={checkTask} onDelete={onDelete}/>
           )
         })}
       </section>

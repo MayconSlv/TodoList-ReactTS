@@ -1,35 +1,30 @@
 import style from './Task.module.css';
-import { Trash } from 'phosphor-react';
+import { CheckCircle, Trash } from 'phosphor-react';
 import { ITask } from '../App';
-import { ChangeEvent, useState } from 'react';
+import {BsFillCheckCircleFill } from 'react-icons/bs'
 
 interface Props {
   task: ITask;
+  checkTask: (taskId: string) => void;
+  onDelete: (taskId: string) => void;
 }
 
 
-export function Task({ task }: Props) {
-
-  const [isChecked, setIsChecked] = useState(false);
-
-
-  function changeChecked(event: ChangeEvent<HTMLInputElement>) {
-    const checked = (event.target.checked)
-
-    setIsChecked(checked)
-  }
+export function Task({ task, checkTask, onDelete }: Props) {
 
   return (
     <div className={style.task__container}>
 
       <div className={style.container}>
-        <input type="checkbox" onChange={changeChecked}/>
-        <p className={style.task__content}>
+        <button className={style.task__checkButton} onClick={() => checkTask(task.id)}>
+         {task.isCompleted ? <BsFillCheckCircleFill /> : <div/>}
+        </button>
+        <p className={task.isCompleted ? style.task__textCompleted : ""}>
           {task.content}    
         </p>
       </div>
 
-      <button className={style.task__button}>
+      <button className={style.task__button} onClick={() => onDelete(task.id)}>
         <Trash size={14} />
       </button>
     </div>

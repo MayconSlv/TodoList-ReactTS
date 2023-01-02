@@ -33,8 +33,26 @@ export function App() {
     ])
   }
 
-  function isChecked (checked: boolean) {
-    
+  function deleteTasksById (taskToDelete: string) {
+    const newTasksWithOutDeletedTask = tasks.filter((task) => {
+      return task.id !== taskToDelete;
+    })
+
+    setTasks(newTasksWithOutDeletedTask)
+  }
+
+  function toggleTaskCompletedById (taskId: string) {
+    const newTask = tasks.map((task) => {
+      if(task.id === taskId) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        }
+      }
+      return task
+    })
+
+    setTasks(newTask)
   }
 
   return (
@@ -43,7 +61,11 @@ export function App() {
         <Header onAddTask={addTask}/>
       </header>
       
-      <TodoList tasks={tasks} />
+      <TodoList 
+        tasks={tasks} 
+        checkTask={toggleTaskCompletedById}
+        onDelete={deleteTasksById}
+      />
     </>
   )
 }
